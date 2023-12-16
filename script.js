@@ -115,37 +115,52 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   var userInput = getPasswordOptions();
-  console.log(userInput)
+
   if (userInput === undefined) {
     return;
   }
 
   var password = [];
   var arrayChoice = [];
+  var numberOfTrueArrays = 0;
 
   if (userInput[1]) {
     arrayChoice.push(lowerCasedCharacters);
+    password.push(lowerCasedCharacters[getRandom(lowerCasedCharacters)]);
+    numberOfTrueArrays++;
   } 
 
   if (userInput[2]) {
     arrayChoice.push(upperCasedCharacters);
+    password.push(upperCasedCharacters[getRandom(upperCasedCharacters)]);
+    numberOfTrueArrays++;
   }
 
   if (userInput[3]) {
     arrayChoice.push(numericCharacters);
+    password.push(numericCharacters[getRandom(numericCharacters)]);
+    numberOfTrueArrays++;
   }
 
   if (userInput[4]) {
     arrayChoice.push(specialCharacters);
+    password.push(specialCharacters[getRandom(specialCharacters)]);
+    numberOfTrueArrays++;
   }
 
-  for (var i = 0; i < userInput[0]; i++) {
+  // function shuffle copied from: https://javascript.info/task/shuffle
+  function shuffle(arr) {
+    arr.sort(() => Math.random() - 0.5);
+  }
+
+  for (var i = 0; i < userInput[0] - numberOfTrueArrays; i++) {
     var pickArray = Math.floor(Math.random() * arrayChoice.length);
     var selectedArray = arrayChoice[pickArray];
     var randomIndex = getRandom(selectedArray);
     password.push(selectedArray[randomIndex]);
   }
 
+  password = shuffle(password);
   return password.join('');
 }
 
