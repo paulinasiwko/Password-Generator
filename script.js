@@ -148,11 +148,6 @@ function generatePassword() {
     numberOfTrueArrays++;
   }
 
-  // function shuffle copied from: https://javascript.info/task/shuffle
-  function shuffle(arr) {
-    arr.sort(() => Math.random() - 0.5);
-  }
-
   for (var i = 0; i < userInput[0] - numberOfTrueArrays; i++) {
     var pickArray = Math.floor(Math.random() * arrayChoice.length);
     var selectedArray = arrayChoice[pickArray];
@@ -160,8 +155,13 @@ function generatePassword() {
     password.push(selectedArray[randomIndex]);
   }
 
-  password = shuffle(password);
-  return password.join('');
+  // shuffle copied from StackOverflow: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  var finalPassword = password
+  .map(value => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value)
+  
+  return finalPassword.join('');
 }
 
 // Get references to the #generate element
