@@ -103,7 +103,12 @@ function getPasswordOptions() {
     var userChoices = [lengthOfPassword, lowerCase, upperCase, numeric, specialCharacters];  
   }
 
-  return userChoices;
+  if (userChoices[1] === false && userChoices[2] === false && userChoices[3] === false && userChoices[4] === false) {
+    alert('Please select at least one option.');
+    return getPasswordOptions();
+  } else {
+    return userChoices;
+  }
 }
 
 // Function for getting a random element from an array
@@ -116,9 +121,9 @@ function getRandom(arr) {
 function generatePassword() {
   var userInput = getPasswordOptions();
 
-  if (userInput === undefined) {
-    return;
-  }
+  // if (userInput === undefined) {
+  //   return;
+  // }
 
   var password = [];
   var arrayChoice = [];
