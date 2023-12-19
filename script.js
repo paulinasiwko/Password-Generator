@@ -120,11 +120,6 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   var userInput = getPasswordOptions();
-
-  // if (userInput === undefined) {
-  //   return;
-  // }
-
   var password = [];
   var arrayChoice = [];
   var numberOfTrueArrays = 0;
@@ -160,7 +155,7 @@ function generatePassword() {
     password.push(selectedArray[randomIndex]);
   }
 
-  // shuffle copied from StackOverflow: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  // shuffle function copied from StackOverflow: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   var finalPassword = password
   .map(value => ({ value, sort: Math.random() }))
   .sort((a, b) => a.sort - b.sort)
