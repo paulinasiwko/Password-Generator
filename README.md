@@ -24,6 +24,8 @@ Using **JavaScript** I analyze user's input to create a random password. The cod
 
 Once all prompts are answered, the password is generated and written to the page.
 
+The password is generated after each button click.
+
 
 After opening the code in the browser the resulting analysis looks as following:
 
