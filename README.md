@@ -32,7 +32,7 @@ After opening the code in the browser the resulting analysis looks as following:
 The [URL](https://paulinasiwko.github.io/Password-Generator/) of deployed application.
 
 ## Credits
-N/A
+A shuffle function to create the **final password** was copied from [Stack Overflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
 
 ## Licence 
 N/A
