@@ -94,6 +94,7 @@ function getPasswordOptions() {
   lengthOfPassword = +lengthOfPassword;
   if (isNaN(lengthOfPassword) || lengthOfPassword < 8 || lengthOfPassword > 128) {
     alert('Please enter a valid number between 8 and 128');
+    return getPasswordOptions();
   } else {
     var lowerCase = confirm('Click OK if you want to have lower cases in you password.');
     var upperCase = confirm('Click OK if you want to have upper cases in you password.');
