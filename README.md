@@ -29,7 +29,7 @@ The password is generated after each button click.
 
 After opening the code in the browser the resulting analysis looks as following:
 
-![A screenshot of the deployed application](./img/password-generator.PNG)
+![A screenshot of the deployed application](./assets/img/password-generator.PNG)
 
 The [URL](https://paulinasiwko.github.io/Password-Generator/) of deployed application.
 
